@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://k8xyb6rf0lrn"]
+
+[ext_resource type="PackedScene" uid="uid://def1aewjjeopd" path="res://assets/Pine1.blend" id="1_a202f"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_an7bp"]
+
+[node name="Node3D" type="Node3D" unique_id=1091160360]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=534302009]
+transform = Transform3D(3.0111794, 0, 0, 0, 1, 0, 0, 0, 3.1203058, 0, 0, 0)
+mesh = SubResource("PlaneMesh_an7bp")
+
+[node name="Pine1" parent="." unique_id=396011218 instance=ExtResource("1_a202f")]
+transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, -1.9158115, 0.23491564, 0.924726)
