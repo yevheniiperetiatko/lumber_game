@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://k8xyb6rf0lrn"]
+
+[ext_resource type="PackedScene" uid="uid://def1aewjjeopd" path="res://assets/Pine1.blend" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://waiy3qi1st2l" path="res://assets/Tree1.blend" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://jdssuhjf0ulb" path="res://assets/MiniPickup.blend" id="3_tefeu"]
+[ext_resource type="PackedScene" uid="uid://c2wddrpfxsvek" path="res://scenes/player.tscn" id="4_o6xl0"]
+[ext_resource type="Script" uid="uid://0vvxed71436j" path="res://scenes/player.gd" id="5_tbgi4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_tbgi4"]
+sky_material = SubResource("ProceduralSkyMaterial_jyhfs")
+
+[sub_resource type="Environment" id="Environment_tefeu"]
+background_mode = 2
+sky = SubResource("Sky_tbgi4")
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_an7bp"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_an7bp"]
+
+[node name="Main" type="Node3D" unique_id=1091160360]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1643569766]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2097222932]
+environment = SubResource("Environment_tefeu")
+
+[node name="Pine1" parent="." unique_id=396011218 instance=ExtResource("1_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.721802, 0, 0.34541738)
+
+[node name="Tree1" parent="." unique_id=1764815182 instance=ExtResource("2_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.48053, 0, -17.13372)
+
+[node name="MiniPickup" parent="." unique_id=2136612859 instance=ExtResource("3_tefeu")]
+transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, -13.355446, 0, 10.876629)
+
+[node name="Player" parent="." unique_id=255544936 instance=ExtResource("4_o6xl0")]
+transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, -14.735269, 2.1534472, 4.5531282)
+script = ExtResource("5_tbgi4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=374613265]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=534302009]
+transform = Transform3D(27.379164, 0, 0, 0, 1, 0, 0, 0, 28.693733, 0, 0, 0)
+mesh = SubResource("PlaneMesh_an7bp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=950577683]
+shape = SubResource("WorldBoundaryShape3D_an7bp")
