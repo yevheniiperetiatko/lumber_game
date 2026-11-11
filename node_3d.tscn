@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://k8xyb6rf0lrn"]
 
 [ext_resource type="PackedScene" uid="uid://def1aewjjeopd" path="res://assets/Pine1.blend" id="1_a202f"]
+[ext_resource type="PackedScene" uid="uid://waiy3qi1st2l" path="res://assets/Tree1.blend" id="2_a0tk4"]
+[ext_resource type="PackedScene" uid="uid://jdssuhjf0ulb" path="res://assets/MiniPickup.blend" id="3_r3fl7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_an7bp"]
 
@@ -12,3 +14,9 @@ mesh = SubResource("PlaneMesh_an7bp")
 
 [node name="Pine1" parent="." unique_id=396011218 instance=ExtResource("1_a202f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.721802, 0, 0.34541738)
+
+[node name="Tree1" parent="." unique_id=1764815182 instance=ExtResource("2_a0tk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.48053, 0, -17.13372)
+
+[node name="MiniPickup" parent="." unique_id=2136612859 instance=ExtResource("3_r3fl7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.355446, 0, 10.876629)
