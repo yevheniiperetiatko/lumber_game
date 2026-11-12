@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://waiy3qi1st2l" path="res://assets/Tree1.blend" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://jdssuhjf0ulb" path="res://assets/MiniPickup.blend" id="3_tefeu"]
 [ext_resource type="PackedScene" uid="uid://c2wddrpfxsvek" path="res://scenes/player.tscn" id="4_o6xl0"]
-[ext_resource type="Script" uid="uid://0vvxed71436j" path="res://scenes/player.gd" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://0vvxed71436j" path="res://scripts/player.gd" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://c64q2snlkrjm7" path="res://scenes/axe.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dr8jsyajho671" path="res://scenes/trunk.tscn" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://c3bqwf2cbps2d" path="res://scripts/axe.gd" id="7_tipki"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -56,7 +57,8 @@ mesh = SubResource("PlaneMesh_an7bp")
 shape = SubResource("WorldBoundaryShape3D_an7bp")
 
 [node name="Axe" parent="." unique_id=1717028336 instance=ExtResource("6_tefeu")]
-transform = Transform3D(-2.247696, 1.0811992, -0.802041, -0.047370896, -1.623501, -2.0558207, -1.3453687, -1.7491858, 1.412349, 0.23563099, 2.1787786, 4.9735546)
+transform = Transform3D(2.2874703, -0.2351645, 1.2556177, 0.31228197, 2.6000314, -0.08195144, -1.238692, 0.22120976, 2.2980652, -0.62603414, 1.555516, 4.200332)
+script = ExtResource("7_tipki")
 
 [node name="Trunk4" parent="." unique_id=841168649 instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7156968, 0.0033853054, 6.048306)
