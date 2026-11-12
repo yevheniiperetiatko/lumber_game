@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://jdssuhjf0ulb" path="res://assets/MiniPickup.blend" id="3_tefeu"]
 [ext_resource type="PackedScene" uid="uid://c2wddrpfxsvek" path="res://scenes/player.tscn" id="4_o6xl0"]
 [ext_resource type="Script" uid="uid://0vvxed71436j" path="res://scenes/player.gd" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://c64q2snlkrjm7" path="res://scenes/axe.tscn" id="6_tefeu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -38,7 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.721802, 0, 0.34541738)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.48053, 0, -17.13372)
 
 [node name="MiniPickup" parent="." unique_id=2136612859 instance=ExtResource("3_tefeu")]
-transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, -13.355446, 0, 10.876629)
+transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, -7.555811, 0.044980526, -5.9631977)
 
 [node name="Player" parent="." unique_id=255544936 instance=ExtResource("4_o6xl0")]
 transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, -14.735269, 2.1534472, 4.5531282)
@@ -52,3 +53,6 @@ mesh = SubResource("PlaneMesh_an7bp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=950577683]
 shape = SubResource("WorldBoundaryShape3D_an7bp")
+
+[node name="Axe" parent="." unique_id=1717028336 instance=ExtResource("6_tefeu")]
+transform = Transform3D(2.62, 0, 0, 0, 2.62, 0, 0, 0, 2.62, -3.8934298, 10.027205, 0.6977024)
