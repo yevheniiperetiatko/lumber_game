@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c2wddrpfxsvek" path="res://scenes/player.tscn" id="4_o6xl0"]
 [ext_resource type="Script" uid="uid://0vvxed71436j" path="res://scenes/player.gd" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://c64q2snlkrjm7" path="res://scenes/axe.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dr8jsyajho671" path="res://scenes/trunk.tscn" id="7_o6xl0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -55,4 +56,22 @@ mesh = SubResource("PlaneMesh_an7bp")
 shape = SubResource("WorldBoundaryShape3D_an7bp")
 
 [node name="Axe" parent="." unique_id=1717028336 instance=ExtResource("6_tefeu")]
-transform = Transform3D(2.62, 0, 0, 0, 2.62, 0, 0, 0, 2.62, -3.8934298, 10.027205, 0.6977024)
+transform = Transform3D(-2.247696, 1.0811992, -0.802041, -0.047370896, -1.623501, -2.0558207, -1.3453687, -1.7491858, 1.412349, 0.23563099, 2.1787786, 4.9735546)
+
+[node name="Trunk4" parent="." unique_id=841168649 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7156968, 0.0033853054, 6.048306)
+
+[node name="Trunk5" parent="." unique_id=938306208 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(0.07888512, 0, -0.9968837, 0, 1, 0, 0.9968837, 0, 0.07888512, 1.7385969, 2.1892967, 5.3567057)
+
+[node name="Trunk6" parent="." unique_id=1867796430 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7083926, 1.0412586, 5.2783227)
+
+[node name="Trunk" parent="." unique_id=2115837560 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0016926527, 4.6394734)
+
+[node name="Trunk3" parent="." unique_id=77733611 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5544567, 1.0880237, 2.0437226)
+
+[node name="Trunk2" parent="." unique_id=1416001708 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3565507, 0.045755863, 2.0735233)
