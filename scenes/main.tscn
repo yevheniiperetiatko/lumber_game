@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://k8xyb6rf0lrn"]
 
+[ext_resource type="Script" uid="uid://6tb05gibn4a5" path="res://scenes/slice_test.gd" id="1_85g3d"]
 [ext_resource type="PackedScene" uid="uid://def1aewjjeopd" path="res://assets/Pine1.blend" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://waiy3qi1st2l" path="res://assets/Tree1.blend" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://jdssuhjf0ulb" path="res://assets/MiniPickup.blend" id="3_tefeu"]
@@ -25,7 +26,13 @@ glow_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_an7bp"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_an7bp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_an7bp"]
+size = Vector3(1, 1, 2.017456)
+
 [node name="Main" type="Node3D" unique_id=1091160360]
+script = ExtResource("1_85g3d")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1643569766]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -58,13 +65,14 @@ shape = SubResource("WorldBoundaryShape3D_an7bp")
 
 [node name="Axe" parent="." unique_id=1717028336 instance=ExtResource("6_tefeu")]
 transform = Transform3D(2.2874703, -0.2351645, 1.2556177, 0.31228197, 2.6000314, -0.08195144, -1.238692, 0.22120976, 2.2980652, -0.62603414, 1.555516, 4.200332)
+collision_mask = 0
 script = ExtResource("7_tipki")
 
 [node name="Trunk4" parent="." unique_id=841168649 instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7156968, 0.0033853054, 6.048306)
 
 [node name="Trunk5" parent="." unique_id=938306208 instance=ExtResource("7_o6xl0")]
-transform = Transform3D(0.07888512, 0, -0.9968837, 0, 1, 0, 0.9968837, 0, 0.07888512, 1.7385969, 2.1892967, 5.3567057)
+transform = Transform3D(0.07870836, 0.066908866, -0.9946499, -0.0052781138, 0.9977591, 0.06670035, 0.9968838, 0, 0.07888513, 1.7385969, 2.1892967, 5.3567057)
 
 [node name="Trunk6" parent="." unique_id=1867796430 instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7083926, 1.0412586, 5.2783227)
@@ -72,8 +80,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7083926, 1.0412586, 5.27832
 [node name="Trunk" parent="." unique_id=2115837560 instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0016926527, 4.6394734)
 
-[node name="Trunk3" parent="." unique_id=77733611 instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5544567, 1.0880237, 2.0437226)
-
 [node name="Trunk2" parent="." unique_id=1416001708 instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3565507, 0.045755863, 2.0735233)
+transform = Transform3D(3.0795376, 0, 0, 0, 1, 0, 0, 0, 2.1004677, 2.3565507, 0.045755863, 2.0735233)
+
+[node name="Slicer" type="MeshInstance3D" parent="." unique_id=1854740213]
+transform = Transform3D(3.0564456, 0, 0, 0, -0.1895805, -5.506293, 0, 3.3438547, -0.3121811, -20.891743, 1.9319243, 0.6101265)
+mesh = SubResource("QuadMesh_an7bp")
+
+[node name="ToBeSliced" type="MeshInstance3D" parent="." unique_id=756596421]
+transform = Transform3D(3.9476032, 0, 0, 0, 2.6344972, 0, 0, 0, 2.8079324, 0, 5.1946554, 13.594152)
+mesh = SubResource("BoxMesh_an7bp")
+
+[editable path="Pine1"]
