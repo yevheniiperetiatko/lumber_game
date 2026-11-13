@@ -52,6 +52,8 @@ transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, -7.555811, 0.0449
 
 [node name="Player" parent="." unique_id=255544936 instance=ExtResource("4_o6xl0")]
 transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, -14.735269, 2.1534472, 4.5531282)
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("5_tbgi4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=374613265]
@@ -65,6 +67,7 @@ shape = SubResource("WorldBoundaryShape3D_an7bp")
 
 [node name="Axe" parent="." unique_id=1717028336 instance=ExtResource("6_tefeu")]
 transform = Transform3D(2.2874703, -0.2351645, 1.2556177, 0.31228197, 2.6000314, -0.08195144, -1.238692, 0.22120976, 2.2980652, -0.62603414, 1.555516, 4.200332)
+collision_layer = 0
 collision_mask = 0
 script = ExtResource("7_tipki")
 
@@ -82,6 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0016926527, 4.6394734)
 
 [node name="Trunk2" parent="." unique_id=1416001708 instance=ExtResource("7_o6xl0")]
 transform = Transform3D(3.0795376, 0, 0, 0, 1, 0, 0, 0, 2.1004677, 2.3565507, 0.045755863, 2.0735233)
+constant_force = Vector3(1.005, 0, 0)
 
 [node name="Slicer" type="MeshInstance3D" parent="." unique_id=1854740213]
 transform = Transform3D(3.0564456, 0, 0, 0, -0.1895805, -5.506293, 0, 3.3438547, -0.3121811, -20.891743, 1.9319243, 0.6101265)

@@ -55,9 +55,16 @@ func _physics_process(delta):
 		
 		velocity.x = horizontal_velocity.x
 		velocity.z = horizontal_velocity.z
-
 	
 	move_and_slide()
+	
+	#print("Collisions: ", get_slide_collision_count())
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var body = collision.get_collider()
+		
+		if body is RigidBody3D:
+			print('wdw')
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

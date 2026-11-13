@@ -1,6 +1,7 @@
 extends Node3D
 
 const MeshSlicer = preload("res://scripts/mesh_slicer.gd")
+var TreeInsideMaterial = load("res://assets/materials/tree_inside.tres")
 
 func _ready() -> void:
 	call_deferred('slice_object')
@@ -35,7 +36,8 @@ func slice_object() -> void:
 	# Perform the slicing.
 	var meshes = MeshSlicer.slice_mesh(
 		slice_transform,
-		mesh_instance.mesh
+		mesh_instance.mesh,
+		TreeInsideMaterial
 	)
 
 	# Assign the first half of the resulting mesh.
@@ -52,7 +54,6 @@ func slice_object() -> void:
 		mesh_body.set_collision_layer_value(3, true)
 		mesh_body.set_collision_layer_value(1, false)
 		
-		mesh_body.set_collision_mask_value(1, true)
 		mesh_body.set_collision_mask_value(1, true)
 		mesh_body.set_collision_mask_value(2, true)
 		mesh_body.set_collision_mask_value(3, true)
