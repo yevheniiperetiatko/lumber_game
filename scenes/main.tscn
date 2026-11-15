@@ -28,9 +28,6 @@ glow_enabled = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_an7bp"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_an7bp"]
-size = Vector3(1, 1, 2.017456)
-
 [node name="Main" type="Node3D" unique_id=1091160360]
 script = ExtResource("1_85g3d")
 
@@ -88,11 +85,7 @@ transform = Transform3D(3.0795376, 0, 0, 0, 1, 0, 0, 0, 2.1004677, 2.3565507, 0.
 constant_force = Vector3(1.005, 0, 0)
 
 [node name="Slicer" type="MeshInstance3D" parent="." unique_id=1854740213]
-transform = Transform3D(3.0564456, 0, 0, 0, -0.1895805, -5.506293, 0, 3.3438547, -0.3121811, -20.891743, 1.9319243, 0.6101265)
+transform = Transform3D(2.4329908, -0.10191295, -3.8747706, -2.9897466, -0.1384407, -3.1481886, -0.05473028, 3.0321307, -0.27397457, -20.66539, 1.9319243, 0.6101265)
 mesh = SubResource("QuadMesh_an7bp")
-
-[node name="ToBeSliced" type="MeshInstance3D" parent="." unique_id=756596421]
-transform = Transform3D(3.9476032, 0, 0, 0, 2.6344972, 0, 0, 0, 2.8079324, 0, 5.1946554, 13.594152)
-mesh = SubResource("BoxMesh_an7bp")
 
 [editable path="Pine1"]

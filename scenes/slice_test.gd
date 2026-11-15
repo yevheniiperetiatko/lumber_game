@@ -58,7 +58,7 @@ func slice_object() -> void:
 		mesh_body.set_collision_mask_value(2, true)
 		mesh_body.set_collision_mask_value(3, true)
 	
-	mesh_zero_body.apply_force(Vector3(150,0,0))
+	#mesh_zero_body.apply_force(Vector3(150,0,0))
 	
 	
 	

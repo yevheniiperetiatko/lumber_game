@@ -24,9 +24,7 @@ static func slice_mesh(slice_transform: Transform3D, mesh: Mesh, cross_section_m
 	combiner.add_child(slicer_csg)
 	slicer_csg.transform = slice_transform
 
-
 	# Wrap the slicer CSG box on one side of the mesh
-
 	var max_at = Vector3(-INF,-INF,-INF)
 	var min_at = Vector3(INF,INF,INF)
 	for v in mesh.get_faces():
@@ -61,6 +59,4 @@ static func slice_mesh(slice_transform: Transform3D, mesh: Mesh, cross_section_m
 
 	# clean up
 	combiner.queue_free()
-
-
 	return [out_mesh, out_mesh2]
