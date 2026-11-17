@@ -19,6 +19,7 @@ points = PackedVector3Array(0.95105654, -0.22746491, 0.30892718, 0.95087034, 0.4
 [node name="CarMiniPickUp" type="RigidBody3D" unique_id=2035064933]
 collision_layer = 4
 collision_mask = 7
+mass = 1000.0
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=762410536]
 transform = Transform3D(2.78, 0, 0, 0, 0.375, 0, 0, 0, 2, -0.49100846, 0.897562, 0)

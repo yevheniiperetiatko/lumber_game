@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal interact_object
+
 var input_direction: Vector2
 
 @export var speed: float = 5.0
@@ -10,10 +12,13 @@ var input_direction: Vector2
 @export var air_resistance: float = 2.0
 
 @onready var head = $Head
-@onready  var camera = $Head/Camera3D
+@onready var hand = $Head/Hand
+@onready var camera = $Head/Camera3D
+@onready var ray_cast_3d = $Head/Camera3D/RayCast3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group('player')
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event):
@@ -27,7 +32,7 @@ func _unhandled_input(event):
 	
 	if event is InputEventMouseButton and event.pressed:
 		Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
-	
+
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -57,15 +62,21 @@ func _physics_process(delta):
 		velocity.z = horizontal_velocity.z
 	
 	move_and_slide()
-	
-	#print("Collisions: ", get_slide_collision_count())
-	for i in range(get_slide_collision_count()):
-		var collision = get_slide_collision(i)
-		var body = collision.get_collider()
-		
-		if body is RigidBody3D:
-			print('wdw')
+	##print("Collisions: ", get_slide_collision_count())
+	#for i in range(get_slide_collision_count()):
+		#var collision = get_slide_collision(i)
+		#var body = collision.get_collider()
+		#if body is RigidBody3D:
+			#print('wdw')
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if ray_cast_3d.is_colliding():
+		var collider = ray_cast_3d.get_collider()
+		if collider.is_in_group("pickable"):
+			if Input.is_action_pressed('interact'):
+				collider.global_position = hand.global_position
+				#collider.global_rotation = hand.rotation
+				collider.collision_layer = 2
+				collider.linear_velocity = Vector3(0.1, 1.0, 0.1)
+				

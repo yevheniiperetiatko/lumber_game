@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://k8xyb6rf0lrn"]
+
+[ext_resource type="Script" uid="uid://6tb05gibn4a5" path="res://scenes/slice_test.gd" id="1_85g3d"]
+[ext_resource type="PackedScene" uid="uid://def1aewjjeopd" path="res://assets/Pine1.blend" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://waiy3qi1st2l" path="res://assets/Tree1.blend" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://c2wddrpfxsvek" path="res://scenes/player.tscn" id="4_o6xl0"]
+[ext_resource type="Script" uid="uid://0vvxed71436j" path="res://scripts/player.gd" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://c64q2snlkrjm7" path="res://scenes/axe.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dr8jsyajho671" path="res://scenes/trunk.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://dferhfp8uy2fw" path="res://scenes/car_mini_pick_up.tscn" id="9_85g3d"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_tbgi4"]
+sky_material = SubResource("ProceduralSkyMaterial_jyhfs")
+
+[sub_resource type="Environment" id="Environment_tefeu"]
+background_mode = 2
+sky = SubResource("Sky_tbgi4")
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_an7bp"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_an7bp"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_an7bp"]
+
+[node name="Main" type="Node3D" unique_id=1091160360]
+script = ExtResource("1_85g3d")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1643569766]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2097222932]
+environment = SubResource("Environment_tefeu")
+
+[node name="Pine1" parent="." unique_id=396011218 instance=ExtResource("1_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.721802, 0, 0.34541738)
+
+[node name="Tree1" parent="." unique_id=1764815182 instance=ExtResource("2_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.48053, 0, -17.13372)
+
+[node name="Player" parent="." unique_id=255544936 instance=ExtResource("4_o6xl0")]
+transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, -7.6332827, 6.0753746, 1.8522038)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("5_tbgi4")
+
+[node name="RayCast3D" type="RayCast3D" parent="Player/Head/Camera3D" parent_id_path=PackedInt32Array(255544936, 1644187561) index="0" unique_id=1004628624]
+target_position = Vector3(0, -1, -4)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=374613265]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=534302009]
+transform = Transform3D(27.379164, 0, 0, 0, 1, 0, 0, 0, 28.693733, 0, 0, 0)
+mesh = SubResource("PlaneMesh_an7bp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=950577683]
+shape = SubResource("WorldBoundaryShape3D_an7bp")
+
+[node name="Trunk4" parent="." unique_id=841168649 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7156968, 0.0033853054, 6.048306)
+
+[node name="Trunk5" parent="." unique_id=938306208 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(0.07870836, 0.066908866, -0.9946499, -0.0052781138, 0.9977591, 0.06670035, 0.9968838, 0, 0.07888513, -8.380798, 2.1068263, -6.63528)
+
+[node name="Trunk6" parent="." unique_id=1867796430 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(0.99235064, 0.048240256, -0.11363581, 0.08528224, 0.39766106, 0.91356033, 0.08925895, -0.91626334, 0.39050514, -7.14057, 2.520518, -6.914287)
+
+[node name="Trunk" parent="." unique_id=2115837560 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0016926527, 4.6394734)
+
+[node name="Trunk2" parent="." unique_id=1416001708 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(3.0795376, 0, 0, 0, 0.9951188, -0.2072836, 0, 0.0986845, 2.090215, -2.9748616, 13.596449, 10.271863)
+constant_force = Vector3(1.005, 0, 0)
+
+[node name="Slicer" type="MeshInstance3D" parent="." unique_id=1854740213]
+transform = Transform3D(2.4329908, -0.10191295, -3.8747706, -2.9897466, -0.1384407, -3.1481886, -0.05473028, 3.0321307, -0.27397457, -20.66539, 1.9319243, 0.6101265)
+mesh = SubResource("QuadMesh_an7bp")
+
+[node name="CarMiniPickUp" parent="." unique_id=2035064933 instance=ExtResource("9_85g3d")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7.0365896, 0.09403673, -6.564895)
+
+[node name="Axe" parent="." unique_id=1717028336 instance=ExtResource("6_tefeu")]
+transform = Transform3D(2.615, 0, 0, 0, 2.615, 0, 0, 0, 2.615, -4.266183, 0.9839038, 8.366174)
+
+[editable path="Pine1"]
+[editable path="Player"]

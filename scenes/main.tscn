@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://0vvxed71436j" path="res://scripts/player.gd" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://c64q2snlkrjm7" path="res://scenes/axe.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dr8jsyajho671" path="res://scenes/trunk.tscn" id="7_o6xl0"]
-[ext_resource type="Script" uid="uid://c3bqwf2cbps2d" path="res://scripts/axe.gd" id="7_tipki"]
 [ext_resource type="PackedScene" uid="uid://dferhfp8uy2fw" path="res://scenes/car_mini_pick_up.tscn" id="9_85g3d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
@@ -45,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.721802, 0, 0.34541738)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.48053, 0, -17.13372)
 
 [node name="Player" parent="." unique_id=255544936 instance=ExtResource("4_o6xl0")]
-transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, -7.6332827, 6.0753746, 1.8522038)
+transform = Transform3D(1.605, 0, 0, 0, 1.605, 0, 0, 0, 1.605, -7.6332827, 1.4602401, -3.9151814)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("5_tbgi4")
@@ -59,57 +58,24 @@ mesh = SubResource("PlaneMesh_an7bp")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=950577683]
 shape = SubResource("WorldBoundaryShape3D_an7bp")
 
-[node name="Axe" parent="." unique_id=1717028336 instance=ExtResource("6_tefeu")]
-transform = Transform3D(2.2874703, -0.61160374, -1.1215247, 0.31228197, -1.9626939, 1.707252, -1.2386923, -1.6242453, -1.6406916, -6.635461, 3.1989555, -6.482851)
-collision_layer = 4
-collision_mask = 7
-script = ExtResource("7_tipki")
-
-[node name="Trunk4" parent="." unique_id=841168649 instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7156968, 0.0033853054, 6.048306)
-
-[node name="Trunk5" parent="." unique_id=938306208 instance=ExtResource("7_o6xl0")]
-transform = Transform3D(0.07870836, 0.066908866, -0.9946499, -0.0052781138, 0.9977591, 0.06670035, 0.9968838, 0, 0.07888513, -8.380798, 2.1068263, -6.63528)
-
-[node name="Trunk6" parent="." unique_id=1867796430 instance=ExtResource("7_o6xl0")]
-transform = Transform3D(0.99235064, 0.048240256, -0.11363581, 0.08528224, 0.39766106, 0.91356033, 0.08925895, -0.91626334, 0.39050514, -7.14057, 2.520518, -6.914287)
-
-[node name="Trunk" parent="." unique_id=2115837560 instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0016926527, 4.6394734)
-
-[node name="Trunk2" parent="." unique_id=1416001708 instance=ExtResource("7_o6xl0")]
-transform = Transform3D(3.0795376, 0, 0, 0, 0.9951188, -0.2072836, 0, 0.0986845, 2.090215, -2.9748616, 13.596449, 10.271863)
-constant_force = Vector3(1.005, 0, 0)
-
 [node name="Slicer" type="MeshInstance3D" parent="." unique_id=1854740213]
 transform = Transform3D(2.4329908, -0.10191295, -3.8747706, -2.9897466, -0.1384407, -3.1481886, -0.05473028, 3.0321307, -0.27397457, -20.66539, 1.9319243, 0.6101265)
 mesh = SubResource("QuadMesh_an7bp")
 
-[node name="CarMiniPickUp" parent="." unique_id=2035064933 instance=ExtResource("9_85g3d")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7.0365896, 0.09403673, -6.564895)
+[node name="CarMiniPickUp" parent="." unique_id=2035064933 groups=["pickable"] instance=ExtResource("9_85g3d")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7.0365896, 0.09403673, -17.314999)
 
-[node name="Axe2" parent="." unique_id=1813827800 instance=ExtResource("6_tefeu")]
-transform = Transform3D(2.2874703, -0.2351645, 1.2556177, 0.31228197, 2.6000314, -0.08195144, -1.238692, 0.22120976, 2.2980652, -2.1429148, 1.6545194, 1.4240971)
-collision_layer = 4
-collision_mask = 7
-script = ExtResource("7_tipki")
+[node name="Axe" parent="." unique_id=1717028336 groups=["pickable"] instance=ExtResource("6_tefeu")]
+transform = Transform3D(2.615, 0, 0, 0, 2.615, 0, 0, 0, 2.615, -2.62363, 1.4965639, 10.264264)
 
-[node name="Axe3" parent="." unique_id=1331015354 instance=ExtResource("6_tefeu")]
-transform = Transform3D(2.2874703, -0.2351645, 1.2556177, 0.31228197, 2.6000314, -0.08195144, -1.238692, 0.22120976, 2.2980652, -0.3855278, 1.5883496, 4.070095)
-collision_layer = 4
-collision_mask = 7
-script = ExtResource("7_tipki")
+[node name="Trunk" parent="." unique_id=841168649 instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5117044, 0.014395059, 3.4901447)
 
-[node name="Axe4" parent="." unique_id=2016655721 instance=ExtResource("6_tefeu")]
-transform = Transform3D(2.2874703, -0.2351645, 1.2556177, 0.31228197, 2.6000314, -0.08195144, -1.238692, 0.22120976, 2.2980652, -2.3299885, 1.3228948, 5.1230435)
-collision_layer = 4
-collision_mask = 7
-script = ExtResource("7_tipki")
+[node name="Axe2" parent="." unique_id=910134432 groups=["pickable"] instance=ExtResource("6_tefeu")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 1.2502985, 1.1287615, 9.547562)
 
-[node name="Axe5" parent="." unique_id=946305649 instance=ExtResource("6_tefeu")]
-transform = Transform3D(4.592403, -0.4721245, 2.5208206, 0.62694794, 5.219911, -0.16452971, -2.4868402, 0.44410834, 4.613675, -5.194152, 3.8915641, 6.7795677)
-collision_layer = 4
-collision_mask = 7
-script = ExtResource("7_tipki")
+[node name="Axe3" parent="." unique_id=2050105246 groups=["pickable"] instance=ExtResource("6_tefeu")]
+transform = Transform3D(0.722396, 6.3365407, 0.39809954, 0.9901512, 0.28332752, -6.306459, -6.271351, 0.77463824, -0.94983715, -6.7712035, 0.34938478, -6.2198257)
 
 [editable path="Pine1"]
+[editable path="Player"]

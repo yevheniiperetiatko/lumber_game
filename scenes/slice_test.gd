@@ -21,6 +21,9 @@ func create_rigid_body(sliced_mesh, spawn_position):
 	get_tree().current_scene.add_child(body)
 	body.global_position = spawn_position
 	
+	body.add_to_group('pickable')
+	print(body.is_in_group("pickable")) # true
+	
 	return body
 	
 func slice_object() -> void:
@@ -51,8 +54,8 @@ func slice_object() -> void:
 	var mesh_one_body = create_rigid_body(meshes[1], mesh_instance.global_position)
 	
 	for mesh_body in [mesh_zero_body, mesh_one_body]:
-		mesh_body.set_collision_layer_value(3, true)
-		mesh_body.set_collision_layer_value(1, false)
+		#mesh_body.set_collision_layer_value(3, true)
+		mesh_body.set_collision_layer_value(1, true)
 		
 		mesh_body.set_collision_mask_value(1, true)
 		mesh_body.set_collision_mask_value(2, true)
