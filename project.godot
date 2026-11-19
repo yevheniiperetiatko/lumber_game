@@ -66,4 +66,6 @@ interact={
 
 [rendering]
 
-rendering_device/driver.windows="d3d12"
+rendering_device/driver.windows="gl_compatibility"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.windows="gl_compatibility"
